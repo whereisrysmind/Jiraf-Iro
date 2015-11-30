@@ -11,13 +11,16 @@ var width = 960,
     maxRadius = 12;
 
 var titleW = 300,
-    titleH = 150;
+    titleH = 140;
 
 var titleX = ((width/2)-(titleW/2)),
     titleY = 10;
 
+var footerX = ((width/2)-(titleW/2)),
+    footerY =  -30;
+
 var n = 250, // total number of nodes
-    m = 18; // number of distinct clusters
+    m = 16; // number of distinct clusters
 
 var color2 = d3.scale.ordinal()
                .range(["#1f77b4",
@@ -27,16 +30,17 @@ var color2 = d3.scale.ordinal()
                        "#9467bd",
                        "#8c564b",
                        "#e377c2",
-                       "",
-                       "",
-                       "",
-                       "",
-                       "",
-                       "",
-                       "",
-                       "",
+                       "#662C73",
+                       "#1ECEBD",
+                       "#4B86CE",
+                       "#E529CE",
+                       "#E52917",
+                       "#CB4764",
+                       "#2DBFF1",
+                       "#A38FF1",
+                       "#EDE57B",
                        ])
-               .domain(d3.range(0,7));
+               .domain(d3.range(0,15));
 
 var color = d3.scale.category10()
     .domain(d3.range(m));
@@ -73,20 +77,39 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
+var bvg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", titleH);
+
 var imgs = tvg.selectAll("img").data([0]);
 imgs.enter()
     .append("svg:image")
-    .attr("xlink:href", "./IroGraphic.png")
+    .attr("xlink:href", "./Iro1.png")
     .attr("x", titleX.toString())
     .attr("y", titleY.toString())
     .attr("width", titleW.toString())
     .attr("height", titleH.toString());
 
+/*var bimgs = bvg.selectAll("img").data([0]);
+bimgs.enter()*/
+
+function gameClick()
+{
+    window.location.href = "bubbles_v.3/index.html";
+}
+
+bvg.append("image")
+    .attr("xlink:href", "./enter.png")
+    .attr("x", footerX.toString())
+    .attr("y", footerY.toString())
+    .attr("width", titleW.toString())
+    .attr("height", titleH.toString())
+    .attr("onclick", "return gameClick()");
 
 var node = svg.selectAll("circle")
     .data(nodes)
     .enter().append("circle")
-    .style("fill", function(d) { return color(d.cluster); })
+    .style("fill", function(d) { return color2(d.cluster); })
     .call(force.drag);
 
 node.transition()

@@ -22,19 +22,21 @@ David Wayman | dwayman | r3dcrosse |
 - Coding:
 - Documentation: 
 
+## Overview
+
+**Let’s Play! - Iro** is browser-based, interactive, educational game in which the player sorts colors and shapes. The game offers multiple levels of increasing complexity. Players advance through levels by selecting the correct combination of color and shape within a specified time limit. 
+
 ## Requirements
 
-Users of “Let’s play! -Iro” software must have access to internet. This software must be developed for kids between ages of 5 and 11. Must consist of different choices of colors.
-
-This game will contain different stages of complexity. User will have to get certain amount of  correct answers to be able to get into next level. User also will have a chance to register their name to keep score on the scoreboard. 
-
-Software must consist ? screen modes. User will start from home screen , then clicking on “Enter” button they will be transfer to next screen - game mode. After timer runs out player will be moved to result screen  from where  she/he can exit or continue to play. 
+- Coded in Javascript, HTML, and CSS.
+- Game is platform-independent and can be played in any modern web browser.
+- Splash/intro screen, which leads to the first (simple) level of the game, which leads to subsequent (more complex) levels.
+- Each level is worth a certain number of points. Advanced levels are worth more points than earlier levels.
+- An overall point total is kept for each session.
+- Players can register their name to include their total score on a ranked scoreboard.
+- After completing each level, players have an option of continuing to the next level, or exiting.
 
 ## Functional Specification
-
-### Overview
-
-“Let’s play! -Iro” is a software designed for any platform that have access to internet.  This is K-5 (or K & Over) online , interactive, educational game to learn how to sort colors and objects. This game will have a timer and allow  to keep score. This game will provide randomly selected color for user to interact with. And will become more challenging with each level, adding more shapes and colors to increase the complexity of the game and keep players engaged. 
 
 ### Possible Scenario
 

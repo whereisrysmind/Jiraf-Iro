@@ -4,16 +4,24 @@ CS177 Long Project
 
 ## Group Members
 
-- Ilmira Andronico
-- Christopher Black
-- Jasmine Farrell
-- Evan Morrison
-- Zack Pierce
-- Tatyana Polyakova
-- Robert Mitchell
-- Ariel Salazar
-- Greg Stephens
-- David Wayman
+| Name | CCSF username | Github username |
+| ---- | ------------- | --------------- |
+Ilmira Andronico |  | iandroni |
+Christopher Black | cblack1 |  |
+Jasmine Farrell | jfarrel6 | jasmineiris |
+Evan Morrison | emorris7 | evmo |
+Zack Pierce | ppierce2 | zackerypierce |
+Tatyana Polyakova | tpolyako | tatyana12 |
+Robert Mitchell | rmitchel | squeakyheatr |
+Ariel Salazar |  | itozann |
+Greg Stephens |  |  |
+David Wayman | dwayman | r3dcrosse |
+
+### Roles
+
+- Coding:
+- Documentation: 
+- 
 
 ## Requirements
 
@@ -26,9 +34,11 @@ Software must consist ? screen modes. User will start from home screen , then cl
 ## Functional Specification
 
 ### Overview
+
 “Let’s play! -Iro” is a software designed for any platform that have access to internet.  This is K-5 (or K & Over) online , interactive, educational game to learn how to sort colors and objects. This game will have a timer and allow  to keep score. This game will provide randomly selected color for user to interact with. And will become more challenging with each level, adding more shapes and colors to increase the complexity of the game and keep players engaged. 
 
 ### Possible Scenario
+
 Kate wants to play this game. She will have to go online and start “Let’s play! -Iro” game. After Kate opened this software she will have to register her name to keep the score. Ones player has gotten a color, different shapes with that color from the player will appear  on the screen with extra shapes  and different colors. Kate would have to detect the color that has been provided originally  and count amount of colored objects.  After time runs out , this screen will turn into blank field where she would enter her count then push check button to get correct result. This score will be saved and after getting 5 correct results she will move to next  more complex level.
 
 ### Non Goals
@@ -43,7 +53,7 @@ Primary input will come from user. She/He will be able to register her/his name 
 
 This software will compare results from a user and a program and will keep score of user entries/answers.
 
-#### Screen by screen specification
+### Screen by screen specification
 
 “Let’s play! Iro” software will consist of home screen, game mode and result screen
 
@@ -74,8 +84,3 @@ Score will increase by 1 after correct result . When player gets 5 correct answe
 The design should be very simple and responsive with mobile being the default to start. While K-5 is intended target, it can be marketed as K & Over, which is actually easier and leaves open the possibility of other ancillary benefits.  Being simple the game should also be able to be played in guest mode with some limited functionality so it just works and requires no language skills, account or adult supervision to begin. Without having to do anything, the game should automatically keep track of scores when the same computer revisits the site insuring a more customized, engaging, and intelligent experience regardless. It will work both ways in guest and user mode invisibly and seamlessly for K & Over. Graphical Icons can be used instead of words for easier and simpler navigation and messaging in particular younger audience and different language markets. Instructions can also be shown in either graphical form or an animated video example sample.
 
 Wire frames will be coming soon!
-
-
-
-
-

@@ -1,9 +1,22 @@
 var viewer = document.getElementById("viewer");
 var ctx = viewer.getContext("2d");
 var balls = [];
-var colors = ['#FFFF00','#FF66FF','#0099FF','#33CC33','#996600'];
+var colors = ['#BB60C1','#FA3EB0','#604CC1','#59A3C1','#FAE91C'];
 var started = false;
 var clock = null;
+var opacity = 1.0;
+var audio = new Audio('Simon_Says.mp3');
+audio.play();
+
+function hexToRGBA(hexval, opacity)
+{
+    var bigint = parseInt(hexval.substring( 1, hexval.length ), 16);
+    var r = (bigint>>16) & 255;
+    var g = (bigint>>8) & 255;
+    var b = bigint & 255;
+
+    return "rgba(" + r + "," + g + "," + b + "," + opacity.toFixed(2) + ")";
+}
 
 function drawImage(x, y, width, height, src)
 {
@@ -25,20 +38,22 @@ function createBall()
 	ball[3] = Math.floor(Math.random() * colors.length); // color
 	ball[4] = Math.floor((Math.random() * 10) - 5);   // dx
 	ball[5] = Math.floor((Math.random() * 10) - 5);   // dy
+    ball[6] = opacity; //opacity
 	balls.push(ball);
 }
 
 function drawBalls()
 {
 	ctx.clearRect(0, 0, viewer.width, viewer.height);
-	drawImage( 0, 0, 100, 100, "IroGraphic.png"); // add image
+	//drawImage( 24, 48, 100, 100, "IroGraphic.png"); // add image
 	for(j = 0; j < balls.length; j++)
 	{
 		var ball = balls[j];
 		ctx.beginPath();
 		ctx.arc(ball[0], ball[1], ball[2], 0, 2 * Math.PI);
-		ctx.fillStyle = colors[ball[3]];
-		ctx.fill();
+		ctx.fillStyle = hexToRGBA(colors[ball[3]], ball[6]);
+//        ctx.fillStyle = colors[ball[3]];
+        ctx.fill();
 	}
 }
 
@@ -68,9 +83,14 @@ function updateBalls()
 		}
 		if(bounce)
 		{
-			ball[2] = Math.floor((Math.random() * 25) + 5);      // radius
-			ball[3] = Math.floor(Math.random() * colors.length); // color
-		}
+            
+		//	ball[2] = Math.floor((Math.random() * 25) + 5);      // radius
+		//	ball[3] = Math.floor(Math.random() * colors.length); // color
+        }
+        if(opacity > 0)
+        {
+            ball[6] = ball[6] - .03;
+        }
 	}
 	drawBalls();
 }
@@ -134,7 +154,7 @@ for(j = 0; j < ballCount; j++)
 
 viewer.width = 800;
 viewer.height = 600;
-//viewer.style.backgroundImage  = "url('./nebula/dev/a/" + scene["bg"] + "')";
+//viewer.style.backgroundImage  = "url('background.html')";
 //viewer.style.backgroundSize = "contain";
 viewer.addEventListener("mousedown", mouseDown, false);
 var body = document.getElementsByTagName("BODY")[0];

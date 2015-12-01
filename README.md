@@ -21,7 +21,6 @@ David Wayman | dwayman | r3dcrosse |
 
 - Coding:
 - Documentation: 
-- 
 
 ## Requirements
 

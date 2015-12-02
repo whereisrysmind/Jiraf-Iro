@@ -155,7 +155,7 @@ function stopClock()
 
 function getUserInput(){
   var text = document.getElementById('userBallCount').value;
-  console.log(text);
+  console.log("user input: "+text);
 }
 
 var ballCount = Math.floor((Math.random() * 30) + 20);
@@ -174,3 +174,4 @@ var body = document.getElementsByTagName("BODY")[0];
 body.addEventListener("keyup", keyUp, false);
 
 drawBalls();
+console.log("There are "+yellowBallCount+" yellow balls...");

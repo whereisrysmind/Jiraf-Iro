@@ -35,7 +35,7 @@ David Wayman | dwayman | r3dcrosse |
 - An overall point total is kept for each session.
 - Players can register their name to include their total score on a ranked scoreboard.
 - After completing each level, players have an option of continuing to the next level, or exiting.
-
+- Players have posibility to evaluate this game and provide their comments using the form provided.
 ## Functional Specification
 
 ### Possible Scenario

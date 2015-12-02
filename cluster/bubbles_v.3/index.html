@@ -1,15 +1,32 @@
 <html>
 <head>
-<title>Iro</title>
+  <title>Iro</title>
+
+    <!-- Bootstrap -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
   <noscript>Sorry, your browser does not support JavaScript</noscript>
   <canvas id="viewer">Sorry, your browser does not support canvas tags</canvas>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../../js/bootstrap.min.js"></script>
+
   <script src="//d3js.org/d3.v3.min.js"></script>
   <script src="test.js"></script>
 
-  <input type="text" id="userBallCount" />
-  <button name="Check Answer!" onclick="getUserInput()"></button>
+ <!--TEXT BOX AND BUTTON TO GET USER INPUT FOR HOW MANY BALLS WERE COUNTED-->
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control" id="userBallCount" placeholder="How many yellow balls are there?">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" onclick="getUserInput()">Go!</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
 
 </body>
 </html>

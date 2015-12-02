@@ -20,9 +20,9 @@
  <!--TEXT BOX AND BUTTON TO GET USER INPUT FOR HOW MANY BALLS WERE COUNTED-->
     <div class="col-lg-6">
       <div class="input-group">
-        <input type="text" class="form-control" id="userBallCount" placeholder="How many yellow balls are there?">
+        <input type="text" class="form-control" id="userBallCount" placeholder="How many yellow balls are there?" onkeydown="if (event.keyCode == 13) document.getElementById('goButton').click()">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button" onclick="getUserInput()">Go!</button>
+          <button class="btn btn-default" type="button" id="goButton" onclick="getUserInput()">Go!</button>
         </span>
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->

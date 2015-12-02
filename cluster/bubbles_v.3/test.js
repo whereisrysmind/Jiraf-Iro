@@ -153,6 +153,11 @@ function stopClock()
 	drawBalls();
 }
 
+function getUserInput(){
+  var text = document.getElementById('userBallCount').value;
+  console.log(text);
+}
+
 var ballCount = Math.floor((Math.random() * 30) + 20);
 //console.log("ballCount: " + ballCount);
 for(j = 0; j < ballCount; j++)

@@ -6,7 +6,7 @@ CS177 Long Project
 
 | Name | CCSF username | Github username |
 | ---- | ------------- | --------------- |
-Ilmira Andronico |  | iandroni |
+Ilmira Andronico | iandroni  | iandroni |
 Christopher Black | cblack1 |  |
 Jasmine Farrell | jfarrel6 | jasmineiris |
 Evan Morrison | emorris7 | evmo |

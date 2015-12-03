@@ -19,12 +19,13 @@ David Wayman | dwayman | r3dcrosse |
 
 ### Roles
 
-- Coding:
-- Documentation: 
+- Coding: Jasmine Farrell, David Wayman
+- Documentation: Ilmira Andronico, Evan Morrison
+- QA testing: Ilmira Andronico
 
 ## Overview
 
-**Let’s Play! - Iro** is browser-based, interactive, educational game in which the player sorts colors and shapes. The game offers multiple levels of increasing complexity. Players advance through levels by selecting the correct combination of color and shape within a specified time limit. 
+**Let’s Play! - Iro** is browser-based, interactive, educational game in which the player sorts colors and counts yellow color balls. Players advance through levels by selecting the correct combination of color and shape within a specified time limit. 
 
 ## Requirements
 
@@ -84,4 +85,3 @@ Score will increase by 1 after correct result . When player gets 5 correct answe
 
 The design should be very simple and responsive with mobile being the default to start. While K-5 is intended target, it can be marketed as K & Over, which is actually easier and leaves open the possibility of other ancillary benefits.  Being simple the game should also be able to be played in guest mode with some limited functionality so it just works and requires no language skills, account or adult supervision to begin. Without having to do anything, the game should automatically keep track of scores when the same computer revisits the site insuring a more customized, engaging, and intelligent experience regardless. It will work both ways in guest and user mode invisibly and seamlessly for K & Over. Graphical Icons can be used instead of words for easier and simpler navigation and messaging in particular younger audience and different language markets. Instructions can also be shown in either graphical form or an animated video example sample.
 
-Wire frames will be coming soon!

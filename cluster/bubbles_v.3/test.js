@@ -164,6 +164,7 @@ function checkIntScore(aInt) {
 
 function checkStringScore(text) {
   // Linear search to check if aString is in ARRAY_OF_ANSWERS
+  // TEST COMMENT!!!
   for (j = 0; j < ARRAY_OF_ANSWERS.length; j++) {
     if (text == ARRAY_OF_ANSWERS[j]) {
       console.log("CORRECT"); // LEFT FOR DEBUGGING PURPOSES

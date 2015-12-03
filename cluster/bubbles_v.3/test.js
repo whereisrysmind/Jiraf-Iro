@@ -178,6 +178,7 @@ for(j = 0; j < ballCount; j++)
 {
 	createBall();
 }
+console.log("ballCount: "+ballCount);
 
 viewer.width = 800;
 viewer.height = 600;

@@ -1,3 +1,7 @@
+var ARRAY_OF_ANSWERS = ["ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX",
+                        "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE",
+                        "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN",
+                        "EIGHTEEN", "NINETEEN", "TWENTY"];
 var viewer = document.getElementById("viewer");
 var ctx = viewer.getContext("2d");
 var balls = [];
@@ -153,23 +157,40 @@ function stopClock()
 	drawBalls();
 }
 
+function checkIntScore(aInt) {
+  // THIS WILL NEED TO PASS THE RESULT INTO FINAL PAGE........
+  (yellowBallCount == aInt) ? console.log("CORRECT!!!") : console.log("Incorrect");
+}
+
+function checkStringScore(text) {
+  // Linear search to check if aString is in ARRAY_OF_ANSWERS
+  for (j = 0; j < ARRAY_OF_ANSWERS.length; j++) {
+    if (text == ARRAY_OF_ANSWERS[j]) {
+      console.log("CORRECT"); // LEFT FOR DEBUGGING PURPOSES
+      console.log("index in array: "+j); // LEFT FOR DEBUGGING PURPOSES
+      console.log(ARRAY_OF_ANSWERS[j]); // LEFT FOR DEBUGGING PURPOSES
+      // Sends correct index to checkIntScore(aInt)
+      checkIntScore(j);
+    }
+  }
+}
+
 function getUserInput(){
   var userRawInputText = document.getElementById('userBallCount').value;
   var text = userRawInputText.toUpperCase();
   console.log("user input: "+text);
 
-  // Figure out if input is all ints or is a string for text
   var inputAsInt = parseInt(userRawInputText);
-  if (inputAsInt != NaN) { //If userInput is not a number, then don't check the score as an Int
+  console.log("inputAsInt: "+inputAsInt);
+  // Figure out if input is all ints or is a string for text
+  if (isNaN(inputAsInt)) { //If userInput is not a number, then don't check the score as an Int
+    checkStringScore(text);
+    console.log("array length: "+ARRAY_OF_ANSWERS.length);
+  } else {
     checkIntScore(inputAsInt);
   }
 
   //In progress... Figuring out how to check when userInput is a string (e.g. "twelve")
-}
-
-function checkIntScore(aInt) {
-  // THIS WILL NEED TO BE CHANGED TO PASS THE RESULT INTO FINAL PAGE........
-  (yellowBallCount == aInt) ? console.log("CORRECT!!!") : console.log("Incorrect");
 }
 
 var ballCount = Math.floor((Math.random() * 30) + 20);
@@ -178,7 +199,7 @@ for(j = 0; j < ballCount; j++)
 {
 	createBall();
 }
-console.log("ballCount: "+ballCount);
+console.log("ballCount: "+ballCount); // GET RID OF THIS TO REMOVE BALL COUNT IN CONSOLE
 
 viewer.width = 800;
 viewer.height = 600;

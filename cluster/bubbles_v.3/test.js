@@ -154,8 +154,22 @@ function stopClock()
 }
 
 function getUserInput(){
-  var text = document.getElementById('userBallCount').value;
+  var userRawInputText = document.getElementById('userBallCount').value;
+  var text = userRawInputText.toUpperCase();
   console.log("user input: "+text);
+
+  // Figure out if input is all ints or is a string for text
+  var inputAsInt = parseInt(userRawInputText);
+  if (inputAsInt != NaN) { //If userInput is not a number, then don't check the score as an Int
+    checkIntScore(inputAsInt);
+  }
+
+  //In progress... Figuring out how to check when userInput is a string (e.g. "twelve")
+}
+
+function checkIntScore(aInt) {
+  // THIS WILL NEED TO BE CHANGED TO PASS THE RESULT INTO FINAL PAGE........
+  (yellowBallCount == aInt) ? console.log("CORRECT!!!") : console.log("Incorrect");
 }
 
 var ballCount = Math.floor((Math.random() * 30) + 20);

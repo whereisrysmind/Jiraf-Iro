@@ -6,16 +6,16 @@ CS177 Long Project
 
 | Name | CCSF username | Github username |
 | ---- | ------------- | --------------- |
-Ilmira Andronico | iandroni  | @iandroni |
+Ilmira Andronico | iandroni  | iandroni |
 Christopher Black | cblack1 |  |
-Jasmine Farrell | jfarrel6 | @jasmineiris |
-Evan Morrison | emorris7 | @evmo |
-Zack Pierce | ppierce2 | @zackerypierce |
-Tatyana Polyakova | tpolyako | @tatyana12 |
-Robert Mitchell | rmitchel | @squeakyheatr |
+Jasmine Farrell | jfarrel6 | jasmineiris |
+Evan Morrison | emorris7 | evmo |
+Zack Pierce | ppierce2 | zackerypierce |
+Tatyana Polyakova | tpolyako | tatyana12 |
+Robert Mitchell | rmitchel | squeakyheatr |
 Ariel Salazar |  | itozann |
 Greg Stephens |  |  |
-David Wayman | dwayman | @r3dcrosse |
+David Wayman | dwayman | r3dcrosse |
 
 ### Roles
 

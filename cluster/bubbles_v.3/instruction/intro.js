@@ -16,7 +16,7 @@ var bubbleShape = "circle";
 
 
 // var myname="name";
-drawName(intro1, letterColors);
+drawName(intro, letterColors);
 //drawName(myName, letterColors);
 
 

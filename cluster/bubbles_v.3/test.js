@@ -100,7 +100,7 @@ function updateBalls()
         }
         if(opacity > 0)
         {
-            ball[6] = ball[6] - .03;
+            ball[6] = ball[6] - .05;
         }
 	}
 	drawBalls();

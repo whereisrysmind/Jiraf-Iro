@@ -1,5 +1,5 @@
 // Simple bubble program.
-var intro1 = "Press P to play";
+var intro = "Press P to play";
 
 // Our colors, to be stored in an array. 
 var red = [0, 70, 80];

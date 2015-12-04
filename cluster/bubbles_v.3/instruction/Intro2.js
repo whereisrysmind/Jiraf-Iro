@@ -1,7 +1,5 @@
-
 // Simple bubble program.
-var intro2 = "Look for "
-var intro2 = "Yellow Circles";
+var intro1 = "How many ...";
 
 // Our colors, to be stored in an array. 
 var red = [0, 70, 80];
@@ -17,8 +15,8 @@ var letterColors = [red, orange, green, blue, purple];
 var bubbleShape = "circle";
 
 
-// var myname="Name";
-drawName(intro2, letterColors);
+// var myname="name";
+drawName(intro1, letterColors);
 //drawName(myName, letterColors);
 
 

@@ -156,8 +156,8 @@ function initEventListeners() {
  
 function updateCanvasDimensions() {
     canvas.attr({
-        height: 400,
-        width: 900
+        height: 800,
+        width: 1000
     });
     canvasWidth = canvas.width();
     canvasHeight = canvas.height();
@@ -305,10 +305,10 @@ document.Friction = 0.85;
 
 var white = [0, 0, 100];
 var black = [0, 0, 27];
-var red = [0, 100, 63];
-var orange = [40, 100, 60];
-var green = [75, 100, 40];
-var blue = [196, 77, 55];
+var pink = [0, 70, 80];
+var blue = [200, 50, 70];
+var green = [80, 100, 40];
+var blue = [196, 80, 55];
 var purple = [280, 50, 60];
  
 setTimeout(updateCanvasDimensions, 30);

@@ -1,6 +1,7 @@
 
 // Simple bubble program.
-var intro2 = "Count the yellow balls";
+var intro2 = "Look for "
+var intro2 = "Yellow Circles";
 
 // Our colors, to be stored in an array. 
 var red = [0, 70, 80];

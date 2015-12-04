@@ -1,3 +1,4 @@
+
 function Vector(x, y, z) {
     this.x = x;
     this.y = y;
@@ -156,8 +157,8 @@ function initEventListeners() {
  
 function updateCanvasDimensions() {
     canvas.attr({
-        height: 800,
-        width: 1000
+        height: 900,
+        width: 1200
     });
     canvasWidth = canvas.width();
     canvasHeight = canvas.height();

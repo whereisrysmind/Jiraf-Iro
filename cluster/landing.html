@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--Dependencies-->
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!--Dependencies-->
+<script src="js/freelancer.js"></script>
+<!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+    <script src="d3.v3.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+
+
+	<title>IRO</title>
+</head>
+<!---->
+<body id="page-top" class="index">
+<p>Hello World!</p>
+<!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Iro</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="bubbles_v.3/instruction/Introduction.html">Play Iro!</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">About Iro</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Team</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="https://github.com/jasmineiris/cs177_Iro">Git Checkout Us </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="img/profile.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">Iro</span>
+                        <hr class="star-light">
+                        <span class="skills">A fun and easy way to learn shapes, colors, and counting!!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!---->
+    <script>
+
+var width = 960,
+    height = 400,
+    padding = 1.5, // separation between same-color nodes
+    clusterPadding = 6, // separation between different-color nodes
+    maxRadius = 12;
+
+var titleW = 300,
+    titleH = 140;
+
+var titleX = ((width/2)-(titleW/2)),
+    titleY = 10;
+
+var footerX = ((width/2)-(titleW/2)),
+    footerY =  -30;
+
+var n = 250, // total number of nodes
+    m = 10; // number of distinct clusters
+
+var color2 = d3.scale.ordinal()
+               .range(["#1f77b4",
+                       "#ff7f0e",
+                       "#2ca02c",
+                       "#d62728",
+                       "#9467bd",
+                       "#8c564b",
+                       "#e377c2",
+                       "#662C73",
+                       "#1ECEBD",
+                       "#4B86CE",
+                       "#E529CE",
+                       "#E52917",
+                       "#CB4764",
+                       "#2DBFF1",
+                       "#A38FF1",
+                       "#EDE57B",
+                       ])
+               .domain(d3.range(0,15));
+
+var color = d3.scale.category10()
+    .domain(d3.range(m));
+
+// The largest node for each cluster.
+var clusters = new Array(m);
+
+var nodes = d3.range(n).map(function() {
+  var i = Math.floor(Math.random() * m),
+      r = Math.sqrt((i + 1) / m * -Math.log(Math.random())) * maxRadius,
+      d = {
+        cluster: i,
+        radius: r,
+        x: Math.cos(i / m * 2 * Math.PI) * 200 + width / 2 + Math.random(),
+        y: Math.sin(i / m * 2 * Math.PI) * 200 + (height / 2) + Math.random()
+      };
+  if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = d;
+  return d;
+});
+
+var force = d3.layout.force()
+    .nodes(nodes)
+    .size([width, height])
+    .gravity(.02)
+    .charge(1)
+    .on("tick", tick)
+    .start();
+
+var tvg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", titleH)
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var bvg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", titleH);
+
+var imgs = tvg.selectAll("img").data([0]);
+imgs.enter()
+    .append("svg:image")
+    .attr("xlink:href", "./Iro1.png")
+    .attr("x", titleX.toString())
+    .attr("y", titleY.toString())
+    .attr("width", titleW.toString())
+    .attr("height", titleH.toString());
+
+/*var bimgs = bvg.selectAll("img").data([0]);
+bimgs.enter()*/
+
+function gameClick()
+{
+    window.location.href = "bubbles_v.3/instruction/Introduction.html";
+}
+
+bvg.append("image")
+    .attr("xlink:href", "./enter.png")
+    .attr("x", footerX.toString())
+    .attr("y", footerY.toString())
+    .attr("width", titleW.toString())
+    .attr("height", titleH.toString())
+    .attr("onclick", "return gameClick()");
+
+var node = svg.selectAll("circle")
+    .data(nodes)
+    .enter().append("circle")
+    .style("fill", function(d) { return color2(d.cluster); })
+    .call(force.drag);
+
+node.transition()
+    .duration(750)
+    .delay(function(d, i) { return i * 5; })
+    .attrTween("r", function(d) {
+      var i = d3.interpolate(0, d.radius);
+      return function(t) { return d.radius = i(t); };
+    });
+
+function tick(e) {
+  node
+      .each(cluster(10 * e.alpha * e.alpha))
+      .each(collide(.5))
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+}
+
+// Move d to be adjacent to the cluster node.
+function cluster(alpha) {
+  return function(d) {
+    var cluster = clusters[d.cluster];
+    if (cluster === d) return;
+    var x = d.x - cluster.x,
+        y = d.y - cluster.y,
+        l = Math.sqrt(x * x + y * y),
+        r = d.radius + cluster.radius;
+    if (l != r) {
+      l = (l - r) / l * alpha;
+      d.x -= x *= l;
+      d.y -= y *= l;
+      cluster.x += x;
+      cluster.y += y;
+    }
+  };
+}
+
+// Resolves collisions between d and all other circles.
+function collide(alpha) {
+  var quadtree = d3.geom.quadtree(nodes);
+  return function(d) {
+    var r = d.radius + maxRadius + Math.max(padding, clusterPadding),
+        nx1 = d.x - r,
+        nx2 = d.x + r,
+        ny1 = d.y - r,
+        ny2 = d.y + r;
+    quadtree.visit(function(quad, x1, y1, x2, y2) {
+      if (quad.point && (quad.point !== d)) {
+        var x = d.x - quad.point.x,
+            y = d.y - quad.point.y,
+            l = Math.sqrt(x * x + y * y),
+            r = d.radius + quad.point.radius + (d.cluster === quad.point.cluster ? padding : clusterPadding);
+        if (l < r) {
+          l = (l - r) / l * alpha;
+          d.x -= x *= l;
+          d.y -= y *= l;
+          quad.point.x += x;
+          quad.point.y += y;
+        }
+      }
+      return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+    });
+  };
+}
+
+</script>
+<!---->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- About Section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>About</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>Let’s Play! - Iro is browser-based, interactive, educational game in which the player sorts colors and counts yellow color balls within set amount of time. Designed and developed by Team Awesome in California.</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>Iro ~ Japanese for 'color', is meant to help children develop their cognitive faculties. Our goal was to create a game that helps young students improve basic math/counting, spacial preception, and abstract reasoning.</p>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <a href="bubbles_v.3/index.html" class="btn btn-lg btn-outline">
+                        <i class="fa fa-download"></i> Play Iro
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Contact Team Awesome!</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Name</label>
+                                <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Email Address</label>
+                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Message</label>
+                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>

@@ -12,7 +12,7 @@ var yellowBallCount = 0; //keeps track of how many yellow balls there are
 var started = false;
 var clock = null;
 var opacity = 1.0;
-var audio = new Audio('Simon_Says.mp3');
+var audio = new Audio('The_Jackson_5.mp3');
 audio.play();
 
 function hexToRGBA(hexval, opacity)

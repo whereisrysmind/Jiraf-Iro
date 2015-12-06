@@ -207,6 +207,11 @@ function getUserInput() {
   } else {
     checkIntScore(inputAsInt);
   }
+
+  // Do something if the user just hits the go button without entering anything...
+  if (userRawInputText == "") {
+    checkIntScore(-1);
+  }
 }
 
 var ballCount = Math.floor((Math.random() * 30) + 20);

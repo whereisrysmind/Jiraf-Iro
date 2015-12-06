@@ -7,6 +7,7 @@
 
 </head>
 <body>
+<div class="container-fluid">
   <noscript>Sorry, your browser does not support JavaScript</noscript>
   <canvas id="viewer">Sorry, your browser does not support canvas tags</canvas>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -19,28 +20,28 @@
 
  <!--TEXT BOX AND BUTTON TO GET USER INPUT FOR HOW MANY BALLS WERE COUNTED-->
     <div class="col-lg-6">
-      <!--BUTTON GROUP FOR AUDIO MUTE/PLAY BUTTONS...-->
-      <div class="btn-group" role="group" aria-label="...">
-        <!--AUDIO MUTE BUTTON-->
-        <button type="button" class="btn btn-danger" aria-label="Volume Off" onclick="audio.pause();">
-          <span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
-        </button>
-        <!--AUDIO PLAY BUTTON-->
-        <button type="button" class="btn btn-info" aria-label="Volume On" onclick="audio.play();">
-          <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
-        </button>
-      </div>
 
       <!--TEXT BOX FOR USER INPUT AND BUTTON-->
       <div class="input-group">
         <input type="text" class="form-control" id="userBallCount" placeholder="How many yellow balls are there?" onkeydown="if (event.keyCode == 13) document.getElementById('goButton').click();">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button" id="goButton" onclick="getUserInput();" data-toggle="modal" data-target="#myModal">Go!</button>
+          <!--BUTTON GROUP FOR AUDIO MUTE/PLAY BUTTONS...-->
+        <div class="btn-group" role="group" aria-label="...">
+          <!--AUDIO MUTE BUTTON-->
+          <button type="button" class="btn btn-danger" aria-label="Volume Off" onclick="audio.pause();">
+            <span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
+          </button>
+          <!--AUDIO PLAY BUTTON-->
+          <button type="button" class="btn btn-info" aria-label="Volume On" onclick="audio.play();">
+            <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+          </button>
+        </div>
       </span>
       </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
   </div><!-- /.row -->
-
+</div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -59,6 +60,7 @@
     </div>
   </div>
 </div>
+
 
 </body>
 </html>

@@ -1,7 +1,9 @@
 var ARRAY_OF_ANSWERS = ["ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX",
                         "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE",
                         "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN",
-                        "EIGHTEEN", "NINETEEN", "TWENTY"];
+                        "EIGHTEEN", "NINETEEN", "TWENTY", "TWENTYONE"];
+var answerMessage = "";
+var scoreMessage = "";
 var viewer = document.getElementById("viewer");
 var ctx = viewer.getContext("2d");
 var balls = [];
@@ -159,7 +161,18 @@ function stopClock()
 
 function checkIntScore(aInt) {
   // THIS WILL NEED TO PASS THE RESULT INTO FINAL PAGE........
-  (yellowBallCount == aInt) ? console.log("CORRECT!!!") : console.log("Incorrect");
+  (yellowBallCount == aInt) ? scoreMessage = "Congratulations! You're correct! There are "+aInt+" yellow circles!"
+  : scoreMessage = "Good try! There are actually "+yellowBallCount+" yellow circles.";
+
+  (yellowBallCount == aInt) ? answerMessage = "CORRECT!" : answerMessage = "Uh Oh! Try again!";
+
+  getScoreMessage();
+}
+
+function getScoreMessage() {
+  document.getElementById("myModalLabel").innerHTML = answerMessage;
+  document.getElementById("modalText").innerHTML = scoreMessage;
+  console.log("scoremessage: "+scoreMessage);
 }
 
 function checkStringScore(text) {
@@ -173,10 +186,14 @@ function checkStringScore(text) {
       // Sends correct index to checkIntScore(aInt)
       checkIntScore(j);
     }
+    // The answer isn't in the array, so give them the correct answer
+    if (j == 22) {
+      checkIntScore(-1);
+    }
   }
 }
 
-function getUserInput(){
+function getUserInput() {
   var userRawInputText = document.getElementById('userBallCount').value;
   var text = userRawInputText.toUpperCase();
   console.log("user input: "+text);
@@ -191,7 +208,10 @@ function getUserInput(){
     checkIntScore(inputAsInt);
   }
 
-  //In progress... Figuring out how to check when userInput is a string (e.g. "twelve")
+  // Do something if the user just hits the go button without entering anything...
+  if (userRawInputText == "") {
+    checkIntScore(-1);
+  }
 }
 
 var ballCount = Math.floor((Math.random() * 30) + 20);
